@@ -15,6 +15,7 @@ public class NewRoom extends Room {
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println(".");
+        System.out.println("There was a booby trap! You died.");
+        Runner.gameOff();
     }
 }
