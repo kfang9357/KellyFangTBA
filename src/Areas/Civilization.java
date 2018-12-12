@@ -1,12 +1,12 @@
-package Rooms;
+package Areas;
 
 import Game.Runner;
-import People.Person;
+import Objects.Person;
 
-public class WinningRoom extends Room
+public class Civilization extends Area
 {
 
-	public WinningRoom(int x, int y) {
+	public Civilization(int x, int y) {
 		super(x, y);
 
 	}

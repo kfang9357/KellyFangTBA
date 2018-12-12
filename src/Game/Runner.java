@@ -1,9 +1,9 @@
 package Game;
 
-import People.Person;
-import Rooms.Room;
-import Rooms.WinningRoom;
-import Rooms.NewRoom;
+import Objects.Person;
+import Areas.Area;
+import Areas.Civilization;
+import Areas.BearsDen;
 	
 import java.util.Scanner;
 
@@ -14,29 +14,28 @@ public class Runner {
 	
 	public static void main(String[] args)
 	{
-		Room[][] building = new Room[5][5];
+		Area[][] building = new Area[5][5];
 		
 		//Fill the building with normal rooms
 		for (int x = 0; x<building.length; x++)
 		{
 			for (int y = 0; y < building[x].length; y++)
 			{
-				building[x][y] = new Room(x,y);
+				building[x][y] = new Area(x,y);
 			}
 		}
-
 
 		//Create a random winning room.
 		int x = (int)(Math.random()*building.length);
 		int y = (int)(Math.random()*building.length);
-		building[x][y] = new WinningRoom(x, y);
+		building[x][y] = new Civilization(x, y);
 
 		int w = (int)(Math.random()*building.length);
 		int z = (int)(Math.random()*building.length);
-		building[w][z] = new NewRoom(w,z);
+		building[w][z] = new BearsDen(w,z);
 
 		 //Setup player 1 and the input scanner
-		Person player1 = new Person("FirstName", "FamilyName", 0,0);
+		Person player1 = new Person("FirstName", "FamilyName", 0,0, 100);
 		building[0][0].enterRoom(player1);
 		Scanner in = new Scanner(System.in);
 		while(gameOn)
@@ -64,7 +63,7 @@ public class Runner {
 	 * @param map the 2D array of rooms
 	 * @return
 	 */
-	public static boolean validMove(String move, Person p, Room[][] map)
+	public static boolean validMove(String move, Person p, Area[][] map)
 	{
 		move = move.toLowerCase().trim();
 		switch (move) {
