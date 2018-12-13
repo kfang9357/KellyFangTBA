@@ -1,48 +1,46 @@
 package Game;
-
+import java.util.Random;
+import Areas.TreeArea;
+import Board.Board;
 import Objects.Person;
 import Areas.Area;
 import Areas.Civilization;
 import Areas.BearsDen;
-	
+import Areas.TreeArea;
+import sun.reflect.generics.tree.Tree;
+
 import java.util.Scanner;
 
 public class Runner {
-	
-
 	private static boolean gameOn = true;
-	
+
 	public static void main(String[] args)
 	{
-		Area[][] building = new Area[5][5];
-		
-		//Fill the building with normal rooms
-		for (int x = 0; x<building.length; x++)
-		{
-			for (int y = 0; y < building[x].length; y++)
-			{
-				building[x][y] = new Area(x,y);
-			}
-		}
+		Area[][] forest = new Area[5][5];
+		Board map = new Board(forest);
 
-		//Create a random winning room.
-		int x = (int)(Math.random()*building.length);
-		int y = (int)(Math.random()*building.length);
-		building[x][y] = new Civilization(x, y);
+		Random r = new Random ();;
 
-		int w = (int)(Math.random()*building.length);
-		int z = (int)(Math.random()*building.length);
-		building[w][z] = new BearsDen(w,z);
+		int n = r.nextInt(5);
 
-		 //Setup player 1 and the input scanner
+		System.out.println(n);
+		BearsDen a2 = new BearsDen (n, n);
+		//TreeArea a1 = new TreeArea(2,2);
+
+		//map.fill(a1);
+		map.addArea(a2, n, n);
+	//	map.addArea(a2, 1,);
+
+		map.printBoard();
+
 		Person player1 = new Person("FirstName", "FamilyName", 0,0, 100);
-		building[0][0].enterRoom(player1);
+		//forest[0][0].enterArea(player1);
 		Scanner in = new Scanner(System.in);
 		while(gameOn)
 		{
 			System.out.println("Where would you like to move? (Choose N, S, E, W)");
 			String move = in.nextLine();
-			if(validMove(move, player1, building))
+			if(validMove(move, player1, forest))
 			{
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 				
@@ -70,8 +68,8 @@ public class Runner {
 			case "n":
 				if (p.getxLoc() > 0)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()-1][p.getyLoc()].enterRoom(p);
+					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
+					map[p.getxLoc()-1][p.getyLoc()].enterArea(p);
 					return true;
 				}
 				else
@@ -81,8 +79,8 @@ public class Runner {
 			case "e":
 				if (p.getyLoc()< map[p.getyLoc()].length -1)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
+					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
+					map[p.getxLoc()][p.getyLoc() + 1].enterArea(p);
 					return true;
 				}
 				else
@@ -93,8 +91,8 @@ public class Runner {
 			case "s":
 				if (p.getxLoc() < map.length - 1)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()+1][p.getyLoc()].enterRoom(p);
+					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
+					map[p.getxLoc()+1][p.getyLoc()].enterArea(p);
 					return true;
 				}
 				else
@@ -105,8 +103,8 @@ public class Runner {
 			case "w":
 				if (p.getyLoc() > 0)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()][p.getyLoc()-1].enterRoom(p);
+					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
+					map[p.getxLoc()][p.getyLoc()-1].enterArea(p);
 					return true;
 				}
 				else

@@ -2,20 +2,11 @@ package Areas;
 import java.util.Scanner;
 import Objects.Person;
 
-    public class TreeArea {
-        Person occupant;
-        int xLoc,yLoc;
-
-        public TreeArea(int x, int y)
-        {
-            xLoc = x;
-            yLoc = y;
+    public class TreeArea extends Area {
+      public TreeArea(int x, int y){
+            super(x,y);
         }
 
-        /**
-         * Method controls the results when a person enters this room.
-         * @param x the Person entering
-         */
         public void enterRoom(Person x)
         {
             occupant = x;
@@ -69,9 +60,13 @@ import Objects.Person;
             return bushesObjects[scenario];
         }
 
-        public void leaveRoom(Person x)
-        {
-            occupant = null;
+        public String toString() {
+
+            if (occupant!=null) {
+                return("[P]");
+            } else {
+                return("[R]");
+            }
         }
 
     }

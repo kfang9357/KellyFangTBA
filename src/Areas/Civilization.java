@@ -16,7 +16,7 @@ public class Civilization extends Area
 	 * @param x the Person entering
 	 */
 	@Override
-	public void enterRoom(Person x) {
+	public void enterArea(Person x) {
 
 		occupant = x;
 		x.setxLoc(this.xLoc);

@@ -16,7 +16,7 @@ public class Area {
      * Method controls the results when a person enters this room.
      * @param x the Person entering
      */
-    public void enterRoom(Person x)
+    public void enterArea(Person x)
     {
         System.out.println("You find yourself in a part of the forest with nothing...");
         occupant = x;
@@ -28,7 +28,7 @@ public class Area {
      * Removes the player from the room.
      * @param x
      */
-    public void leaveRoom(Person x)
+    public void leaveArea(Person x)
     {
         occupant = null;
     }

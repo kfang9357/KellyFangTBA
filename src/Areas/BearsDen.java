@@ -12,7 +12,7 @@ public class BearsDen extends Area {
     }
 
     @Override
-    public void enterRoom(Person x) {
+    public void enterArea(Person x) {
 
         occupant = x;
         x.setxLoc(this.xLoc);
@@ -43,6 +43,15 @@ public class BearsDen extends Area {
         bearOutCome[0] = "You defeated the bear but got hurt!";
         bearOutCome[1] = "The bear ripped you to shreds! You died.";
         return bearOutCome[scenario];
+    }
+
+    public String toString() {
+
+        if (occupant!=null) {
+            return("[S]");
+        } else {
+            return("[Q]");
+        }
     }
 
 }
