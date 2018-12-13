@@ -2,12 +2,10 @@ package Game;
 import java.util.Random;
 import Areas.TreeArea;
 import Board.Board;
-import Objects.Person;
+import People.Person;
 import Areas.Area;
-import Areas.Civilization;
 import Areas.BearsDen;
-import Areas.TreeArea;
-import sun.reflect.generics.tree.Tree;
+import People.hp;
 
 import java.util.Scanner;
 
@@ -17,20 +15,32 @@ public class Runner {
 	public static void main(String[] args)
 	{
 		int a = 0;
+		int b = 0; //bears den
+		int c = 0; //rivers
+		int d = 0; //witch's cult
+
 		Scanner in = new Scanner(System.in);
 		System.out.println("Hello, Player. Do you want to play in the easy, medium, or hard mode? [E/M/H]");
 		String mode = in.nextLine();
 		if(mode.equals("E"))
 		{
 			a = 5;
+			b = 3;
+			c = 2;
 		}
 		else if (mode.equals("M"))
 		{
 			a = 8;
+			b = 8;
+			c = 10;
+			d = 5;
 		}
 		else if (mode.equals("H"))
 		{
 			a = 10;
+			b = 10;
+			c = 10;
+			d = 5;
 		}
 		System.out.println("...");
 		System.out.println("You open your eyes and find yourself in the middle of nowhere.");
@@ -69,14 +79,13 @@ public class Runner {
 			if(validMove(move, player1, forest))
 			{
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-				
+				System.out.println(Person.gethp());
+				map.printBoard();
 			}
 			else {
 				System.out.println("Please choose a valid move.");
 			}
 
-			map.printBoard();
-			
 		}
 		in.close();
 	}

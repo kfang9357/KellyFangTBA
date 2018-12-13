@@ -1,7 +1,7 @@
 package Areas;
 
 import Game.Runner;
-import Objects.Person;
+import People.Person;
 
 public class Civilization extends Area
 {

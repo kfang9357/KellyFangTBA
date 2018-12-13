@@ -1,6 +1,6 @@
 package Areas;
 
-import Objects.Person;
+import People.Person;
 
 public class Area {
     Person occupant;

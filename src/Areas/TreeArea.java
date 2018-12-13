@@ -1,13 +1,15 @@
 package Areas;
 import java.util.Scanner;
-import Objects.Person;
+import People.Person;
+import Objects.Consumables;
+import Objects.Fruit;
 
     public class TreeArea extends Area {
       public TreeArea(int x, int y){
             super(x,y);
         }
 
-        public void enterRoom(Person x)
+        public void enterArea(Person x)
         {
             occupant = x;
             x.setxLoc(this.xLoc);
@@ -36,16 +38,17 @@ import Objects.Person;
             }
         }
 
-        public String shakeTrees()
+        public void shakeTrees()
         {
-            int scenario = 5*(int)Math.random();
-            String[] treesObjects = new String[5];
-            treesObjects[0] = "Nothing fell out of the tree.";
-            treesObjects[1] = "An apple fell out of the tree.";
-            treesObjects[2] = "A pear fell out of the tree.";
-            treesObjects[3] = "An orange fell out of the tree.";
-            treesObjects[4] = "A dead crow fell out of the tree. Ominous...";
-            return treesObjects[scenario];
+            Fruit fruit = new Fruit();
+            System.out.println(fruit.getName() + " fell out of the tree.");
+            System.out.println("Do you eat it? [Y/N]");
+            Scanner choice = new Scanner(System.in);
+            if (choice.equals("Y"))
+            {
+                hp.heal
+            }
+
         }
 
         public String shakeBushes()
