@@ -16,26 +16,52 @@ public class Runner {
 
 	public static void main(String[] args)
 	{
-		Area[][] forest = new Area[5][5];
+		int a = 0;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Hello, Player. Do you want to play in the easy, medium, or hard mode? [E/M/H]");
+		String mode = in.nextLine();
+		if(mode.equals("E"))
+		{
+			a = 5;
+		}
+		else if (mode.equals("M"))
+		{
+			a = 8;
+		}
+		else if (mode.equals("H"))
+		{
+			a = 10;
+		}
+		System.out.println("...");
+		System.out.println("You open your eyes and find yourself in the middle of nowhere.");
+		System.out.println("What is your name?");
+		String name = in.nextLine();
+		System.out.println(name + ", you have to try and find your way out of the forest before your hp falls below 0.");
+
+		Area[][] forest = new Area[a][a];
 		Board map = new Board(forest);
+
+		TreeArea t1 = new TreeArea(1,0);
+		map.fill(t1);
 
 		Random r = new Random ();;
 
 		int n = r.nextInt(5);
 
 		System.out.println(n);
-		BearsDen a2 = new BearsDen (n, n);
+		BearsDen a2 = new BearsDen (0, 0);
+		BearsDen a3 = new BearsDen (0, 1);
 		//TreeArea a1 = new TreeArea(2,2);
 
 		//map.fill(a1);
-		map.addArea(a2, n, n);
+		map.addArea(a2, 0, 0);
+		map.addArea(a3, 0, 1);
 	//	map.addArea(a2, 1,);
 
 		map.printBoard();
 
 		Person player1 = new Person("FirstName", "FamilyName", 0,0, 100);
 		//forest[0][0].enterArea(player1);
-		Scanner in = new Scanner(System.in);
 		while(gameOn)
 		{
 			System.out.println("Where would you like to move? (Choose N, S, E, W)");
@@ -48,7 +74,8 @@ public class Runner {
 			else {
 				System.out.println("Please choose a valid move.");
 			}
-			
+
+			map.printBoard();
 			
 		}
 		in.close();
