@@ -3,6 +3,7 @@ import java.util.Scanner;
 import People.Person;
 import Objects.Consumables;
 import Objects.Fruit;
+import People.hp;
 
     public class TreeArea extends Area {
       public TreeArea(int x, int y){
@@ -21,14 +22,28 @@ import Objects.Fruit;
             String decision = choice.nextLine();
             if (decision.equals("Y"))
             {
-                shakeTrees();
+                Fruit a1 = new Fruit();
+                String fruitName = a1.getName();
+                System.out.println(fruitName + " fell out of the tree.");
+                System.out.println("Do you eat it? [Y/N]");
+                decision = choice.nextLine();
+                if (decision.equals("Y") ){
+                    a1.eat(hp);
+                    hp.gethp(hp);
+                }
+                else if (decision.equals("N")){
+                    System.out.println("You do not eat " + fruitName);
+                }
+                else {
+                    System.out.println("Please choose [Y/N]");
+                }
             }
             else if (decision.equals("N"))
             {
                 System.out.println("Oh well...");
             }
-            System.out.println("Would you like to shake the bushes? [Y/N]");
-            if (decision.equals("N"))
+            /**System.out.println("Would you like to shake the bushes? [Y/N]");
+            if (decision.equals("Y"))
             {
                 shakeBushes();
             }
@@ -38,18 +53,6 @@ import Objects.Fruit;
             }
         }
 
-        public void shakeTrees()
-        {
-            Fruit fruit = new Fruit();
-            System.out.println(fruit.getName() + " fell out of the tree.");
-            System.out.println("Do you eat it? [Y/N]");
-            Scanner choice = new Scanner(System.in);
-            if (choice.equals("Y"))
-            {
-                hp.heal
-            }
-
-        }
 
         public String shakeBushes()
         {
@@ -61,6 +64,8 @@ import Objects.Fruit;
             bushesObjects[3] = "Some blackberries fell out of the bush.";
             bushesObjects[4] = "A battery fell out of the bushes.";
             return bushesObjects[scenario];
+        }
+             **/
         }
 
         public String toString() {

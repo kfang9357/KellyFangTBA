@@ -5,9 +5,7 @@ import People.hp;
 
 public class Fruit {
 
-        hp hp = new hp(100);
-
-        public void eat(Person player1) {
+        public void eat(hp hp) {
             hp.heal(10);
         }
 
