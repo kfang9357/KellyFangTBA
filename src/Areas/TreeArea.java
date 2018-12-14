@@ -1,11 +1,9 @@
 package Areas;
 import java.util.Scanner;
 import People.Person;
-import Objects.Consumables;
 import Objects.Fruit;
-import People.hp;
 
-    public class TreeArea extends Area {
+public class TreeArea extends Area {
       public TreeArea(int x, int y){
             super(x,y);
         }
@@ -28,8 +26,8 @@ import People.hp;
                 System.out.println("Do you eat it? [Y/N]");
                 decision = choice.nextLine();
                 if (decision.equals("Y") ){
-                    a1.eat(hp);
-                    hp.gethp(hp);
+                    a1.eat(x);
+                    x.gethp();
                 }
                 else if (decision.equals("N")){
                     System.out.println("You do not eat " + fruitName);
@@ -73,7 +71,7 @@ import People.hp;
             if (occupant!=null) {
                 return("[P]");
             } else {
-                return("[R]");
+                return("[T]");
             }
         }
 

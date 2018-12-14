@@ -43,11 +43,11 @@ public class Person {
 		return ("You have " + hp + " hp left!" );
 	}
 
-	public void hurt()
+	public void hurt(int amount)
 	{
-		if (hp>=11)
+		if (hp - amount >= 1)
 		{
-			hp = hp - 10;
+			hp = hp - amount;
 
 		}
 		else
@@ -57,10 +57,10 @@ public class Person {
 		}
 	}
 
-	public void heal()
+	public void heal(int amount)
 	{
-		if (hp<=90) {
-			hp = hp + 10;
+		if (hp + amount <= 100) {
+			hp = hp + amount;
 		}
 		else {
 			hp = 100;

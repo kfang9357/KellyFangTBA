@@ -5,7 +5,6 @@ import Board.Board;
 import People.Person;
 import Areas.Area;
 import Areas.BearsDen;
-import People.hp;
 
 import java.util.Scanner;
 
@@ -79,7 +78,6 @@ public class Runner {
 			if(validMove(move, player1, forest))
 			{
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-				System.out.println(Person.gethp());
 				map.printBoard();
 			}
 			else {
