@@ -2,14 +2,16 @@ package Areas;
 import java.util.Scanner;
 import People.Person;
 import Objects.Fruit;
+import Objects.Consumables;
 
-public class TreeArea extends Area {
+
+    public class TreeArea extends Area implements Consumables{
+
       public TreeArea(int x, int y){
             super(x,y);
         }
 
-        public void enterArea(Person x)
-        {
+        public void enterArea(Person x) {
             occupant = x;
             x.setxLoc(this.xLoc);
             x.setyLoc(this.yLoc);
@@ -26,7 +28,8 @@ public class TreeArea extends Area {
                 System.out.println("Do you eat it? [Y/N]");
                 decision = choice.nextLine();
                 if (decision.equals("Y") ){
-                    a1.eat(x);
+                    System.out.println("You eat" + fruitName + ".");
+                    x.heal(10);
                     x.gethp();
                 }
                 else if (decision.equals("N")){
@@ -40,32 +43,27 @@ public class TreeArea extends Area {
             {
                 System.out.println("Oh well...");
             }
-            /**System.out.println("Would you like to shake the bushes? [Y/N]");
-            if (decision.equals("Y"))
-            {
-                shakeBushes();
-            }
-            else if (decision.equals("N"))
-            {
+            System.out.println("Would you like to shake the bushes? [Y/N]");
+            String decision2 = choice.nextLine();
+            if (decision2.equals("Y")) {
+                Fruit f1 = new Fruit();
+                String fruit = f1.getName2();
+                System.out.println(fruit + " fell out of the tree.");
+                System.out.println("Do you eat it? [Y/N]");
+                String eat2 = choice.nextLine();
+                if (eat2.equals("Y")) {
+                    x.hurt(10);
+                    System.out.println("You ate " + fruit + ".");
+                    System.out.println(x.gethp());
+                } else if (eat2.equals("N")) {
+                    System.out.println("Oh well...");
+                } else {
+                    System.out.println("Please choose [Y/N]");
+                }
+            } else if (decision2.equals("N")) {
                 System.out.println("Oh well...");
             }
         }
-
-
-        public String shakeBushes()
-        {
-            int scenario = 6*(int)Math.random();
-            String[] bushesObjects = new String[5];
-            bushesObjects[0] = "Nothing fell out of the bushes.";
-            bushesObjects[1] = "Some rasberries fell out of the bush.";
-            bushesObjects[2] = "Some blueberries fell out of the bush.";
-            bushesObjects[3] = "Some blackberries fell out of the bush.";
-            bushesObjects[4] = "A battery fell out of the bushes.";
-            return bushesObjects[scenario];
-        }
-             **/
-        }
-
         public String toString() {
 
             if (occupant!=null) {

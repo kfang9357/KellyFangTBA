@@ -38,14 +38,15 @@ public class Person {
 		this.yLoc = yLoc;
 	}
 
-	public String gethp()
-	{
-		return ("You have " + hp + " hp left!" );
+	public String gethp(){
+		return "You have " + hp + " hp left!";
 	}
+
 
 	public void hurt(int amount)
 	{
 		if (hp - amount >= 1)
+
 		{
 			hp = hp - amount;
 
@@ -66,5 +67,6 @@ public class Person {
 			hp = 100;
 		}
 	}
+
 
 }

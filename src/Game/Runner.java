@@ -13,12 +13,18 @@ public class Runner {
 
 	public static void main(String[] args)
 	{
+		Scanner in = new Scanner(System.in);
+		System.out.println("What is you first name?");
+		String first = in.nextLine();
+		System.out.println("What is your last name?");
+		String last = in.nextLine();
+		Person player1 = new Person(first, last, 0,0,100);
+
 		int a = 0;
 		int b = 0; //bears den
 		int c = 0; //rivers
 		int d = 0; //witch's cult
 
-		Scanner in = new Scanner(System.in);
 		System.out.println("Hello, Player. Do you want to play in the easy, medium, or hard mode? [E/M/H]");
 		String mode = in.nextLine();
 		if(mode.equals("E"))
@@ -41,11 +47,14 @@ public class Runner {
 			c = 10;
 			d = 5;
 		}
+
+		else
+		{
+			System.out.println("Please choose a  mode. {E/M/H]");
+		}
 		System.out.println("...");
 		System.out.println("You open your eyes and find yourself in the middle of nowhere.");
-		System.out.println("What is your name?");
-		String name = in.nextLine();
-		System.out.println(name + ", you have to try and find your way out of the forest before your hp falls below 0.");
+		System.out.println(first + ", you have to try and find your way out of the forest before your hp falls below 0.");
 
 		Area[][] forest = new Area[a][a];
 		Board map = new Board(forest);
@@ -63,13 +72,12 @@ public class Runner {
 		//TreeArea a1 = new TreeArea(2,2);
 
 		//map.fill(a1);
-		map.addArea(a2, 0, 0);
+		map.addArea(a2, 0, 2);
 		map.addArea(a3, 0, 1);
 	//	map.addArea(a2, 1,);
 
 		map.printBoard();
 
-		Person player1 = new Person("FirstName", "FamilyName", 0,0, 100);
 		//forest[0][0].enterArea(player1);
 		while(gameOn)
 		{
@@ -78,6 +86,7 @@ public class Runner {
 			if(validMove(move, player1, forest))
 			{
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+				player1.gethp();
 				map.printBoard();
 			}
 			else {
