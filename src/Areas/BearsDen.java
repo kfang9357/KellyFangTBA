@@ -1,7 +1,8 @@
 package Areas;
-
+import Objects.Bear;
 import Game.Runner;
 import People.Person;
+
 
 import java.util.Scanner;
 
@@ -18,7 +19,17 @@ public class BearsDen extends Area {
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
         System.out.println("You walk into a bear's den!");
-        System.out.println("Do you fight it? [Y/N]");
+        Bear b1 = new Bear();
+        String bearName = b1.getName();
+        System.out.println("You see " + bearName + ".");
+        if (bearName.indexOf("bear")>=0)
+        {
+            b1.fightBear();
+        }
+        else
+        {
+
+        }
         Scanner choice = new Scanner(System.in);
         String decision = choice.nextLine();
         if (decision.equals("Y"))
@@ -48,9 +59,9 @@ public class BearsDen extends Area {
     public String toString() {
 
         if (occupant!=null) {
-            return("[S]");
+            return("[P]");
         } else {
-            return("[Q]");
+            return("[B]");
         }
     }
 

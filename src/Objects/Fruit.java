@@ -8,11 +8,11 @@ public class Fruit {
             Random rand = new Random();
             int scenario = rand.nextInt(4);
             String[] treesObjects = new String[5];
-            treesObjects[0] = "A banana";
-            treesObjects[1] = "An apple";
-            treesObjects[2] = "A pear";
-            treesObjects[3] = "A battery";
-            treesObjects[4] = "A dead crow";
+            treesObjects[0] = "a banana";
+            treesObjects[1] = "a apple";
+            treesObjects[2] = "a pear";
+            treesObjects[3] = "a battery";
+            treesObjects[4] = "a dead crow";
             return treesObjects[scenario];
         }
 
@@ -20,11 +20,11 @@ public class Fruit {
         Random rand = new Random();
         int scenario = rand.nextInt(4);
         String[] treesObjects = new String[5];
-        treesObjects[0] = "A blueberry";
-        treesObjects[1] = "A blackberry";
-        treesObjects[2] = "A plum";
-        treesObjects[3] = "A remote control";
-        treesObjects[4] = "A baseball";
+        treesObjects[0] = "a blueberry";
+        treesObjects[1] = "a blackberry";
+        treesObjects[2] = "a plum";
+        treesObjects[3] = "a remote control";
+        treesObjects[4] = "a baseball";
         return treesObjects[scenario];
     }
 }

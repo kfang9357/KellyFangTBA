@@ -30,19 +30,19 @@ public class Runner {
 		if(mode.equals("E"))
 		{
 			a = 5;
-			b = 3;
+			b = 5;
 			c = 2;
 		}
 		else if (mode.equals("M"))
 		{
-			a = 8;
+			a = 7;
 			b = 8;
 			c = 10;
 			d = 5;
 		}
 		else if (mode.equals("H"))
 		{
-			a = 10;
+			a = 9;
 			b = 10;
 			c = 10;
 			d = 5;
@@ -58,27 +58,21 @@ public class Runner {
 
 		Area[][] forest = new Area[a][a];
 		Board map = new Board(forest);
-
 		TreeArea t1 = new TreeArea(1,0);
 		map.fill(t1);
 
-		Random r = new Random ();;
+		Random r = new Random ();
 
-		int n = r.nextInt(5);
-
-		System.out.println(n);
-		BearsDen a2 = new BearsDen (0, 0);
-		BearsDen a3 = new BearsDen (0, 1);
-		//TreeArea a1 = new TreeArea(2,2);
-
-		//map.fill(a1);
-		map.addArea(a2, 0, 2);
-		map.addArea(a3, 0, 1);
-	//	map.addArea(a2, 1,);
+		for (int i = 0; i < b ; i++)
+		{
+			int n1 = r.nextInt(a);
+			int n2 = r.nextInt(a);
+			BearsDen b1 = new BearsDen (n1,n2);
+			map.addArea(b1, n1, n2);
+		}
 
 		map.printBoard();
 
-		//forest[0][0].enterArea(player1);
 		while(gameOn)
 		{
 			System.out.println("Where would you like to move? (Choose N, S, E, W)");
