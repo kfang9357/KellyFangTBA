@@ -1,4 +1,5 @@
 package Objects;
+import Game.Runner;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,25 +17,16 @@ public class Bear {
         return bearsObject[scenario];
     }
 
-    public void fightBear()
-    {
+    public String fightBear() {
         Random rand2 = new Random();
-        int scenario = rand2.nextInt(2);
-        String[] bearScnario = new String[3];
+        int scenario = rand2.nextInt(3);
+        String[] bearScnario = new String[4];
         bearScnario[0] = "the bear kills you!";
         bearScnario[1] = "you kill the bear!";
-        bearScnario[2] = "you and the bear form a spiritual connection.";
-        Scanner choice = new Scanner(System.in);
-        System.out.println("Do you want to fight the bear? [Y/N]");
-        String a = choice.nextLine();
-        if (a.equals("Y"))
-        {
-            System.out.println(bearScnario[scenario]);
-        }
-        else
-        {
-            System.out.println("Good call...");
-        }
+        bearScnario[2] = "you and the bear form a spiritual connection. she lends you some of her health.";
+        bearScnario[3] = "the bear hurts you!";
+        String b = bearScnario[scenario];
+        return b;
     }
 
 }

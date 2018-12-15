@@ -21,8 +21,17 @@ public class Civilization extends Area
 		occupant = x;
 		x.setxLoc(this.xLoc);
 		x.setyLoc(this.yLoc);
-		System.out.println("You found the winning room! Ten points for Gryffindor.");
+		System.out.println("You find your way back to life.");
 		Runner.gameOff();
+	}
+
+	public String toString() {
+
+		if (occupant!=null) {
+			return("[ ]");
+		} else {
+			return("[C]");
+		}
 	}
 	
 

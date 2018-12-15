@@ -1,10 +1,10 @@
 package Game;
 import java.util.Random;
-import Areas.TreeArea;
+
+import Areas.*;
 import Board.Board;
 import People.Person;
-import Areas.Area;
-import Areas.BearsDen;
+import Areas.River;
 
 import java.util.Scanner;
 
@@ -25,26 +25,26 @@ public class Runner {
 		int c = 0; //rivers
 		int d = 0; //witch's cult
 
-		System.out.println("Hello, Player. Do you want to play in the easy, medium, or hard mode? [E/M/H]");
+		System.out.println("Hello, " + first + ". Do you want to play in the easy, medium, or hard mode? [E/M/H]");
 		String mode = in.nextLine();
 		if(mode.equals("E"))
 		{
 			a = 5;
 			b = 5;
-			c = 2;
+			c = 9;
 		}
 		else if (mode.equals("M"))
 		{
 			a = 7;
-			b = 8;
-			c = 10;
+			b = 15;
+			c = 15;
 			d = 5;
 		}
 		else if (mode.equals("H"))
 		{
 			a = 9;
-			b = 10;
-			c = 10;
+			b = 25;
+			c = 20;
 			d = 5;
 		}
 
@@ -70,6 +70,17 @@ public class Runner {
 			BearsDen b1 = new BearsDen (n1,n2);
 			map.addArea(b1, n1, n2);
 		}
+
+		for (int i = 0; i < c ; i++)
+		{
+			int n1 = r.nextInt(a);
+			int n2 = r.nextInt(a);
+			River r1 = new River (n1,n2);
+			map.addArea(r1, n1, n2);
+		}
+
+		Civilization c1 = new Civilization(a-1,a-1);
+		map.addArea(c1,a-1,a-1);
 
 		map.printBoard();
 

@@ -50,8 +50,6 @@ import Objects.Consumables;
                 System.out.println("Oh well...");
             }
 
-            System.out.println(x.gethp());
-
             System.out.println("Would you like to shake the bushes? [Y/N]");
             String decision2 = choice.nextLine();
             if (decision2.equals("Y")) {
@@ -85,9 +83,9 @@ import Objects.Consumables;
         public String toString() {
 
             if (occupant!=null) {
-                return("[P]");
-            } else {
                 return("[ ]");
+            } else {
+                return("[T]");
             }
         }
 
