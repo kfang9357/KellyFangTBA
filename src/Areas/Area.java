@@ -33,4 +33,13 @@ public class Area {
         occupant = null;
     }
 
+    public String toString() {
+
+        if (occupant!=null) {
+            return("[P]");
+        } else {
+            return("[ ]");
+        }
+    }
+
 }

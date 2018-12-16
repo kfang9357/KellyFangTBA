@@ -59,9 +59,9 @@ public class BearsDen extends Area {
     public String toString() {
 
         if (occupant!=null) {
-            return("[ ]");
+            return("[P]");
         } else {
-            return("[B]");
+            return("[ ]");
         }
     }
 

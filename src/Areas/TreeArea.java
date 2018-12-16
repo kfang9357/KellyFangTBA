@@ -83,9 +83,9 @@ import Objects.Consumables;
         public String toString() {
 
             if (occupant!=null) {
-                return("[ ]");
+                return("[P]");
             } else {
-                return("[T]");
+                return("[ ]");
             }
         }
 

@@ -31,7 +31,8 @@ public class Runner {
 		{
 			a = 5;
 			b = 5;
-			c = 9;
+			c = 5;
+			d = 10;
 		}
 		else if (mode.equals("M"))
 		{
@@ -58,10 +59,17 @@ public class Runner {
 
 		Area[][] forest = new Area[a][a];
 		Board map = new Board(forest);
-		TreeArea t1 = new TreeArea(1,0);
+		Area t1 = new Area (0,0);
 		map.fill(t1);
-
 		Random r = new Random ();
+
+		for (int i = 0; i < d ; i++)
+		{
+			int n1 = r.nextInt(a);
+			int n2 = r.nextInt(a);
+			TreeArea d1 = new TreeArea (n1,n2);
+			map.addArea(d1, n1, n2);
+		}
 
 		for (int i = 0; i < b ; i++)
 		{
@@ -105,19 +113,19 @@ public class Runner {
 	/**
 	 * Checks that the movement chosen is within the valid game map.
 	 * @param move the move chosen
-	 * @param p person moving
+	 * @param x person moving
 	 * @param map the 2D array of rooms
-	 * @return
+	 * @returnk
 	 */
-	public static boolean validMove(String move, Person p, Area[][] map)
+	public static boolean validMove(String move, Person x, Area[][] map)
 	{
 		move = move.toLowerCase().trim();
 		switch (move) {
 			case "n":
-				if (p.getxLoc() > 0)
+				if (x.getxLoc() > 0)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
-					map[p.getxLoc()-1][p.getyLoc()].enterArea(p);
+					map[x.getxLoc()][x.getyLoc()].leaveArea(x);
+					map[x.getxLoc()-1][x.getyLoc()].enterArea(x);
 					return true;
 				}
 				else
@@ -125,10 +133,10 @@ public class Runner {
 					return false;
 				}
 			case "e":
-				if (p.getyLoc()< map[p.getyLoc()].length -1)
+				if (x.getyLoc()< map[x.getyLoc()].length -1)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
-					map[p.getxLoc()][p.getyLoc() + 1].enterArea(p);
+					map[x.getxLoc()][x.getyLoc()].leaveArea(x);
+					map[x.getxLoc()][x.getyLoc() + 1].enterArea(x);
 					return true;
 				}
 				else
@@ -137,10 +145,10 @@ public class Runner {
 				}
 
 			case "s":
-				if (p.getxLoc() < map.length - 1)
+				if (x.getxLoc() < map.length - 1)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
-					map[p.getxLoc()+1][p.getyLoc()].enterArea(p);
+					map[x.getxLoc()][x.getyLoc()].leaveArea(x);
+					map[x.getxLoc()+1][x.getyLoc()].enterArea(x);
 					return true;
 				}
 				else
@@ -149,10 +157,10 @@ public class Runner {
 				}
 
 			case "w":
-				if (p.getyLoc() > 0)
+				if (x.getyLoc() > 0)
 				{
-					map[p.getxLoc()][p.getyLoc()].leaveArea(p);
-					map[p.getxLoc()][p.getyLoc()-1].enterArea(p);
+					map[x.getxLoc()][x.getyLoc()].leaveArea(x);
+					map[x.getxLoc()][x.getyLoc()-1].enterArea(x);
 					return true;
 				}
 				else

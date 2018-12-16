@@ -62,9 +62,9 @@ public class River extends Area implements Consumables {
     public String toString() {
 
         if (occupant!=null) {
-            return("[ ]");
+            return("[P]");
         } else {
-            return("[R]");
+            return("[ ]");
         }
     }
 
