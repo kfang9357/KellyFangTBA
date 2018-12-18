@@ -1,6 +1,5 @@
 package Areas;
 import Objects.Consumables;
-import Objects.Fruit;
 import People.Person;
 import Objects.Fish;
 

@@ -18,7 +18,7 @@ public class Runner {
 		String first = in.nextLine();
 		System.out.println("What is your last name?");
 		String last = in.nextLine();
-		Person player1 = new Person(first, last, 0,0,100);
+		Person x = new Person(first, last, 0,0,100);
 
 		int a = 0;
 		int b = 0; //bears den
@@ -59,17 +59,18 @@ public class Runner {
 
 		Area[][] forest = new Area[a][a];
 		Board map = new Board(forest);
-		Area t1 = new Area (0,0);
+		Area t1 = new TreeArea (0,0);
 		map.fill(t1);
 		Random r = new Random ();
 
-		for (int i = 0; i < d ; i++)
+		/**for (int i = 0; i < d ; i++)
 		{
 			int n1 = r.nextInt(a);
 			int n2 = r.nextInt(a);
 			TreeArea d1 = new TreeArea (n1,n2);
 			map.addArea(d1, n1, n2);
 		}
+		 **/
 
 		for (int i = 0; i < b ; i++)
 		{
@@ -96,10 +97,10 @@ public class Runner {
 		{
 			System.out.println("Where would you like to move? (Choose N, S, E, W)");
 			String move = in.nextLine();
-			if(validMove(move, player1, forest))
+			if(validMove(move, x, forest))
 			{
-				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-				player1.gethp();
+				System.out.println("Your coordinates: row = " + x.getxLoc() + " col = " + x.getyLoc());
+				x.gethp();
 				map.printBoard();
 			}
 			else {
